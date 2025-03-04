@@ -1,0 +1,11 @@
+<script>
+    import HeaderMap from "./Header_Map.svelte";
+    export let id;
+</script>
+
+<section {id} class="min-h-screen flex flex-col">
+    <HeaderMap />
+    <div class="flex flex-col flex-1 w-full mx-auto">
+        <slot />
+    </div>
+</section>
