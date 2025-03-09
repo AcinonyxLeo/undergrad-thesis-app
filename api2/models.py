@@ -5,7 +5,8 @@ class lora_details(models.Model):
     longitude = models.FloatField(null=True)
     satellite = models.IntegerField(null=True)
     speed = models.FloatField(null=True)
-    plate_number = models.CharField(null=True, max_length=10)
+    last_name = models.CharField(max_length=10, null=True)
+    plate_number = models.CharField(max_length=10, blank=True, null=True)
 
     def __str__(self):
-        return str('lora_details')
+        return f"{self.last_name} ({self.plate_number})"

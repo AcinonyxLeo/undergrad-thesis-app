@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
     'rest_framework',
-    'api2'
+    'api2',
+
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +52,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'LoRa_FleetManagement.urls'
 
@@ -81,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME' : 'lora',
         'USER': 'root',
-        'PASSWORD': 'ECE4Life2022',
+        'PASSWORD': 'password',
         'HOST':'localhost',
         'PORT':'3306',
     }

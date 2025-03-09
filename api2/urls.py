@@ -3,7 +3,7 @@ from .views import LoRaView
 
 urlpatterns = [
     path('gps/', LoRaView.as_view({
-        'get':'loralist',
-        'post':'loraread'
-    }))
+        'get': 'loralist',
+        'post': 'loraread'
+    }), name='lora-gps'),
 ]
