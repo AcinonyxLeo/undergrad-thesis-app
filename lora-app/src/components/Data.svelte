@@ -19,7 +19,7 @@
 
     onMount(() => {
       fetchLoraData(); // Fetch data immediately when the component mounts
-      const interval = setInterval(fetchLoraData, 10000); // Fetch data every 60 seconds
+      const interval = setInterval(fetchLoraData, 1000); // Fetch data every 10 seconds
       return () => clearInterval(interval); // Cleanup on component destruction
     });
 </script>
