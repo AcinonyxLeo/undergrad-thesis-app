@@ -7,3 +7,7 @@
   <Title />
   <About />
 </main>
+
+<style>
+  
+</style>

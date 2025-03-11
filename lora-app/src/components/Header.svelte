@@ -2,7 +2,7 @@
 
 </script>
 
-<header class="flex flex-col relative z-20">
+<header class="flex flex-col relative z-20 header-style">
     <div class="max-w-[1400px] mx-auto w-full flex times-center justify-between p-4 py-6">
         <a href="/">
             <h1>LoRa</h1>
@@ -13,3 +13,21 @@
         </nav>
     </div> 
 </header>
+<style>
+        :global(body, html) {
+        margin: 0;
+        padding: 0;
+    }
+    .header-style {
+        background-color: #ffc857;
+        color: #323031;
+        font-family: Georgia, serif;
+        font-weight: bold;
+        font-size: 1.5em;
+        width: 100%;
+    }
+
+    .header-style a {
+        color: #323031;
+    }
+</style>
