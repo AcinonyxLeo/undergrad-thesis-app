@@ -1,5 +1,10 @@
 <script>
   import SectionWrapper from "./SectionWrapper.svelte";
+  import { goto } from '$app/navigation';
+
+  function handleClick() {
+    goto('/map'); // Navigate to the /map route
+  }
 </script>
 
 <SectionWrapper>
@@ -8,7 +13,7 @@
     <div class="text-content">
       <h2>LoRa-Based Infrastructure with Localized Database</h2>
       <p class="subtitle">Track your vehicle anytime, anywhere!</p>
-      <button class="cta-button">Track Now</button>
+      <button class="cta-button" on:click={handleClick}>Track Now</button>
     </div>
 
     <!-- Right Side - Image -->
