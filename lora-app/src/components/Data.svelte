@@ -45,6 +45,7 @@
         <table class="table-auto w-full border-collapse border border-gray-300">
             <thead class="bg-gray-800 text-white text-lg">
                 <tr>
+                    <th class="border border-gray-300 px-4 py-2">Timestamp</th>
                     <th class="border border-gray-300 px-4 py-2">Last Name</th>
                     <th class="border border-gray-300 px-4 py-2">Longitude</th>
                     <th class="border border-gray-300 px-4 py-2">Latitude</th>
@@ -67,6 +68,7 @@
                 {:else}
                     {#each loraData as item}
                         <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">{item.timestamp}</td>
                             <td class="border border-gray-300 px-4 py-2">{item.last_name}</td>
                             <td class="border border-gray-300 px-4 py-2">{item.longitude}</td>
                             <td class="border border-gray-300 px-4 py-2">{item.latitude}</td>

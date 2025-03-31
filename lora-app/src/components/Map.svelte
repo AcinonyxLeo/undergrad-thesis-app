@@ -5,9 +5,9 @@
 
   // Constant marker for the database
   const databaseMarker = {
-    lngLat: [125.612333, 7.072362] as [number, number],
+    lngLat: [125.61263782713624, 7.072100409819141] as [number, number],
     label: 'CDB',
-    name: 'CENTRALIZE DATABASE',
+    name: 'CENTRALIZE DATABASE', 
   };
 
   // Dynamic markers for LoRa data
