@@ -35,6 +35,7 @@ class LoraDetailsResource(resources.ModelResource):
         model = lora_details
         fields = (
             'id',
+            'packet_number',
             'timestamp',
             'owner_name',
             'vehicle_plate',
@@ -54,6 +55,7 @@ class LoraDetailsAdmin(ImportExportModelAdmin):  # Changed to ImportExportModelA
     
     list_display = (
         'id',
+        'packet_number',
         'timestamp',
         'last_name',
         'plate_number',
