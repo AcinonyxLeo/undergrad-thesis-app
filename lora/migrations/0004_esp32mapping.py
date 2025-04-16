@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('api2', '0003_lora_details_rssi'),
+        ('lora', '0003_lora_details_rssi'),
     ]
 
     operations = [

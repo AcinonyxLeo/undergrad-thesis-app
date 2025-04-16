@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('api2', '0005_alter_esp32mapping_plate_number'),
+        ('lora', '0005_alter_esp32mapping_plate_number'),
     ]
 
     operations = [

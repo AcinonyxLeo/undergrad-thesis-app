@@ -1,6 +1,6 @@
 <script lang="ts">
   import { DefaultMarker, MapLibre, Popup } from 'svelte-maplibre';
-  import { loraDataStore } from '$lib/stores'; // Adjust the import path as needed
+  import { loraDataStore } from '$lib/stores';
   import { onMount } from 'svelte';
 
   // Constant marker for the database
@@ -10,17 +10,21 @@
     name: 'CENTRALIZED DATABASE',
   };
 
+  // Use database marker's position as center point
+  const mapCenter = databaseMarker.lngLat;
+  const initialZoom = 16;
+
   // Dynamic markers for LoRa data
   let markers: Array<{
     lngLat: [number, number];
     label: string;
     name: string;
-  }> = [databaseMarker]; // Initialize with the database marker
+  }> = [databaseMarker];
 
   // Subscribe to the store and update markers when data changes
   loraDataStore.subscribe((data) => {
     markers = [
-      databaseMarker, // Always include the database marker
+      databaseMarker,
       ...data.map((item) => ({
         lngLat: [item.longitude, item.latitude] as [number, number],
         label: item.last_name,
@@ -32,8 +36,8 @@
 
 <div id="map">
   <MapLibre
-    center={[125.612333, 7.072362]}
-    zoom={16}
+    center={mapCenter} 
+    zoom={initialZoom}
     class="map"
     standardControls
     style="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json">

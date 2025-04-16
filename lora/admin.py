@@ -1,8 +1,13 @@
 from django.contrib import admin
 from .models import lora_details, ESP32Mapping
 from import_export import resources, fields
-from import_export.admin import ImportExportModelAdmin  # Changed from ExportMixin
-from import_export.formats import base_formats  # Required for format handling
+from import_export.admin import ImportExportModelAdmin
+from import_export.formats import base_formats
+
+# Admin site header customizations
+admin.site.site_header = "LoRa Tracking System"  # Admin header
+admin.site.site_title = "Admin Portal"          # Browser tab title
+admin.site.index_title = "Device Management"    # Welcome text
 
 class LoraDetailsResource(resources.ModelResource):
     # Custom fields
@@ -46,12 +51,12 @@ class LoraDetailsResource(resources.ModelResource):
             'rssi',
             'speed',
         )
-        export_order = fields  # Maintain column order
+        export_order = fields
 
 @admin.register(lora_details)
-class LoraDetailsAdmin(ImportExportModelAdmin):  # Changed to ImportExportModelAdmin
+class LoraDetailsAdmin(ImportExportModelAdmin):
     resource_class = LoraDetailsResource
-    formats = [base_formats.XLSX, base_formats.CSV]  # Define supported formats
+    formats = [base_formats.XLSX, base_formats.CSV]
     
     list_display = (
         'id',
@@ -68,9 +73,16 @@ class LoraDetailsAdmin(ImportExportModelAdmin):  # Changed to ImportExportModelA
     list_filter = ('satellite',)
     search_fields = ('plate_number', 'last_name')
 
-    # Removed the problematic get_export_data override
-    # The parent class already handles this properly
+    # Customize admin display name
+    def get_model_perms(self, request):
+        perms = super().get_model_perms(request)
+        perms['name'] = "GPS Information"
+        return perms
 
 @admin.register(ESP32Mapping)
 class ESP32MappingAdmin(admin.ModelAdmin):
-    pass
+    # Customize admin display name
+    def get_model_perms(self, request):
+        perms = super().get_model_perms(request)
+        perms['name'] = "Vehicle Infomation"
+        return perms

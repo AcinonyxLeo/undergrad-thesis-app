@@ -30,7 +30,8 @@ ALLOWED_HOSTS = ['192.168.230.234', 'localhost', '127.0.0.1']
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [    
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,11 +40,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'rest_framework',
-    'api2',
+    'lora',
     'import_export',
 
     'corsheaders',
 ]
+
+JAZZMIN_SETTINGS = {
+    
+    "order_with_respect_to": ["your_app.Apj2", "auth"],  # Menu order
+    "hide_models": ["auth.user", "auth.group"],  # Hides User and Group
+
+    "theme": "dark",  # Optional (light/dark)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,0 +1,22 @@
+-- PIP INSTALL (BACKEND) --
+
+pip install virtualenv
+python3 -m venv .venv
+.venv\Scripts\activate
+pip install django
+pip install djangorestframework
+pip install mysqlclient
+pip install django-cors-headers
+python -m pip install django-import-export --user
+
+-- CODE TO RUN (BACKEND) --
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
+
+-- PIP INSTALL (FRONTEND) --
+npm install
+
+-- CODE TO RUN (FRONTEND) --
+npm run dev
