@@ -3,12 +3,22 @@
 </script>
 
 <SectionWrapper>
-    <div id="about" class="title-background flex flex-col items-center">
+    <div id="about" class="title-background flex flex-col items-center" style="margin-top: 10em;">
         <h2 class="about-title">ABOUT US</h2>
         <div class="content flex items-start">
             <img src="../LoRaLogo.png" alt="LoRa Logo" class="logo-image">
             <div class="text-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>
+                    Welcome to <strong>LoRaTrack</strong>, your trusted solution for vehicle tracking. 
+                    Our platform leverages cutting-edge LoRa technology to provide seamless, 
+                    reliable, and precise tracking services. Whether you're managing a fleet or 
+                    ensuring the safety of your personal vehicle, LoRaTrack is here to help.
+                </p>
+                <p>
+                    With a localized database and user-friendly interface, we ensure that you 
+                    have complete control and visibility over your vehicles at all times. 
+                    Experience the future of vehicle tracking with LoRaTrack.
+                </p>
             </div>
         </div>
     </div>
@@ -18,60 +28,89 @@
     :global(body) {
         background-color: #084c61;
         color: white;
-        font-family: Georgia, serif;
+        font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
+        scroll-behavior: smooth; /* Ensure smooth scrolling */
     }
 
     .title-background {
         width: 100%;
-        height: 100vh; /* Adjust the height as needed */
-        color: white; /* Ensure text is readable */
+        min-height: calc(100vh - 4em); /* Subtract header height */
+        color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start; /* Align content to the top */
+        justify-content: flex-start;
         text-align: center;
-        padding: 2em;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-        padding-top: 80px; /* Add padding to account for the header height */
+        padding: 5em 2em; /* Increase top padding for better spacing */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .about-title {
-        font-size: 2.5em; /* Increase the font size of the title */
-        margin-bottom: 1em; /* Add space below the title */
+        font-size: 3em; /* Increase font size for emphasis */
+        margin-bottom: 1em; /* Add more space below the title */
+        margin-top: 2em;
         font-weight: bold;
-        text-transform: uppercase; /* Make the text all caps */
-        padding: 0.5em 1em; /* Add padding around the title */
-        border: 2px solid white; /* Add a border around the title */
-        border-radius: 8px; /* Add rounded corners */
-        background-color: rgba(255, 255, 255, 0.5); /* Fill the border with white but transparent */
-        color: black; /* Change the font color to black */
+        text-transform: uppercase;
+        padding: 0.5em 2em;
+        border: 3px solid white;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.6);
+        color: #084c61; /* Darker text for contrast */
     }
 
     .content {
         display: flex;
         align-items: flex-start;
-        text-align: left; /* Align text to the left */
-        max-width: 1200px; /* Limit the width of the content */
+        text-align: left;
+        max-width: 1200px;
         width: 100%;
-        padding: 1em;
-        margin-top: 2em; /* Add space between the title and the content */
+        gap: 3em; /* Add more spacing between image and text */
+        margin-top: 1em;
     }
 
     .logo-image {
-        width: 6in; /* Set the width to 6 inches */
-        height: auto; /* Maintain aspect ratio */
-        margin-right: 1in; /* Add some space between the image and the text */
+        width: 45%; /* Adjust image size for better balance */
+        height: auto;
+        border-radius: 10px; /* Add rounded corners */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add stronger shadow */
     }
 
     .text-content {
-        flex: 1; /* Allow the text content to take up remaining space */
+        flex: 1;
+        font-size: 1.4em; /* Increase font size for readability */
+        line-height: 2; /* Improve line spacing */
+        color: #d1e8e2; /* Softer text color for readability */
+        text-align: justify; /* Ensure text is justified */
     }
 
     p {
-        font-family: Georgia, serif;
-        font-size: 1.25em; /* Increase the font size of the paragraph */
-        line-height: 1.6; /* Increase line height for better readability */
+        margin-bottom: 2em; /* Add more spacing between paragraphs */
+    }
+
+    p strong {
+        color: #ffc857; /* Highlight important text */
+    }
+
+    @media (max-width: 900px) {
+        .content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-image {
+            width: 80%; /* Adjust image size for smaller screens */
+            margin-bottom: 2em;
+        }
+
+        .text-content {
+            text-align: center;
+        }
+
+        .about-title {
+            font-size: 3em; /* Adjust title size for smaller screens */
+        }
     }
 </style>

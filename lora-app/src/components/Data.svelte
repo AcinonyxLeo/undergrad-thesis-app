@@ -6,7 +6,7 @@
     // Function to fetch data from the backend
     async function fetchLoraData() {
         try {
-            const response = await fetch('http://localhost:8000/api/data/gps/');
+            const response = await fetch('http://localhost:8000/lora/data/gps/');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }

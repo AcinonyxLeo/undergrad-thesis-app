@@ -1,103 +1,120 @@
 <script>
-  import SectionWrapper from "./SectionWrapper.svelte";
   import { goto } from '$app/navigation';
 
   function handleClick() {
-    goto('/map'); // Navigate to the /map route
+      goto('/map'); // Navigate to the /map route
   }
 </script>
 
-<SectionWrapper>
-  <div class="title-container">
+<div class="title-container">
     <!-- Left Side - Text -->
     <div class="text-content">
-      <h2>LoRa-Based Infrastructure with Localized Database</h2>
-      <p class="subtitle">Track your vehicle anytime, anywhere!</p>
-      <button class="cta-button" on:click={handleClick}>Track Now</button>
+        <h1 class="main-title">LoRaTrack</h1>
+        <p class="subtitle">
+            Revolutionizing vehicle tracking with cutting-edge technology.
+        </p>
+        <button class="cta-button" on:click={handleClick}>
+            Track Your Vehicle Now
+        </button>
     </div>
 
     <!-- Right Side - Image -->
     <div class="image-container">
-      <img src="/LoraTitle.png" alt="LoRa Logo" class="logo-image">
+        <img src="/LoraTitle.png" alt="LoRa Logo" class="logo-image">
     </div>
-  </div>
-</SectionWrapper>
+</div>
 
 <style>
-  /* Remove default margin/padding */
   :global(html, body) {
       margin: 0;
       padding: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow-x: hidden;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif; /* Use a clean, professional font */
   }
 
-  /* FLEX CONTAINER FOR TEXT + IMAGE */
+  :global(*),
+  :global(*::before),
+  :global(*::after) {
+      box-sizing: inherit;
+  }
+
   .title-container {
       display: flex;
-      width: 100vw;
-      height: 100vh;
+      justify-content: flex-start; /* Align content to the left */
+      align-items: center;
+      width: 100%;
+      height: calc(100vh - 4em); /* Subtract header height */
+      background: linear-gradient(135deg, #084c61, #1e81b0); /* Professional gradient */
+      color: white;
+      padding: 0; /* Remove horizontal padding */
   }
 
-  /* LEFT SIDE - TEXT */
   .text-content {
       flex: 1;
-      padding: 2em;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      color: white;
-      width: 50vw; /* Ensures it only takes half the screen */
+      padding-left: 2em; /* Add left padding for proper placement */
   }
 
-  h2 {
-      font-size: 2.5em;
+  .main-title {
+      font-size: 5em; /* Larger, bold title */
       margin: 0;
+      margin-left: 2em;
+      font-weight: bold;
+      color: #ffc857; /* Highlighted title color */
+      text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow for emphasis */
   }
 
   .subtitle {
-      font-size: 1.25em;
+      font-size: 2em; /* Increase font size for better readability */
       margin-top: 0.5em;
+      margin-left: 5em;
+      line-height: 1.8; /* Improve readability */
+      color: #ffffff; /* Softer text color for contrast */
+      font-style: italic; /* Add a professional touch */
   }
 
   .cta-button {
       background-color: #ffc857;
       color: #323031;
-      padding: 0.8em 1.5em;
-      font-size: 1em;
+      padding: 1.2em 3em; /* Larger button for emphasis */
+      font-size: 1.5em; /* Increase button text size */
+      margin-left: 6em;
       border: none;
-      border-radius: 6px;
+      border-radius: 50px; /* Rounded button for a modern look */
       cursor: pointer;
-      margin-top: 1em;
+      margin-top: 2em;
       font-weight: bold;
-      transition: background-color 0.3s ease;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add a stronger shadow */
   }
 
   .cta-button:hover {
       background-color: #f4a261;
+      transform: translateY(-4px); /* Slight lift on hover */
   }
 
-  /* RIGHT SIDE - IMAGE */
   .image-container {
-      width: 50vw; /* Ensures it only takes half of the screen */
-      height: 100vh;
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      height: 100%; /* Ensure the container fills the height */
   }
 
-  /* Fix image scaling issues */
   .logo-image {
-      width: 100%;
-      height: auto;
-      object-fit: contain; /* Ensures it fits nicely */
-      object-position: center; /* Centers the image */
+      width: 100%; /* Ensure the image fills the container width */
+      height: 100%; /* Ensure the image fills the container height */
+      object-fit: cover; /* Cover the entire container */
+      object-position: center;
   }
 
-  /* RESPONSIVE DESIGN */
   @media (max-width: 900px) {
       .title-container {
           flex-direction: column;
@@ -105,13 +122,21 @@
           height: auto;
       }
       .text-content {
-          text-align: center;
-          width: 100%;
           align-items: center;
+          padding-left: 0; /* Remove left padding for smaller screens */
+      }
+      .main-title {
+          font-size: 6em; /* Adjust font size for smaller screens */
+      }
+      .subtitle {
+          font-size: 1.8em; /* Adjust font size for smaller screens */
+      }
+      .cta-button {
+          font-size: 1.3em; /* Adjust button text size for smaller screens */
       }
       .image-container {
           width: 100%;
-          height: auto;
+          margin-top: 2em;
       }
       .logo-image {
           width: 100%;
